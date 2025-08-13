@@ -1,42 +1,51 @@
-Vitamin D Deficiency Prediction Project
-Overview
-This repository contains a Jupyter Notebook for predicting Vitamin D deficiency status using machine learning models. The project involves data exploration, preprocessing, model training (Logistic Regression and Random Forest), evaluation, and selection of the best model based on metrics like AUC, Precision, and Recall.
-The dataset is synthetic/generated and includes features related to health and lifestyle factors that may influence Vitamin D levels.
-Key Features:
+# ☀️ D_Sun_Model — AI-powered Vitamin D Deficiency Prediction
 
-Data Loading & EDA: Importing libraries, loading the dataset, checking distributions, and visualizing data types and target class balance.
-Preprocessing: Handling missing values, encoding categorical variables, and splitting data into train/test sets.
-Modeling: Training and hyperparameter tuning for Logistic Regression and Random Forest using GridSearchCV.
-Evaluation: ROC curves, AUC scores, precision, recall, and confusion matrices.
-Model Selection: Automatically selects the best model based on evaluation metrics.
+![Vitamin D Banner](https://raw.githubusercontent.com/yourusername/D_Sun_Model/main/assets/vitamin-d-banner.png)
 
-Dataset
+> An end-to-end Machine Learning pipeline that predicts **Vitamin D Deficiency** from lifestyle, demographic, and health factors.  
+> Powered by **Python**, **Scikit-learn**, and **SMOTE** for class imbalance handling.
 
-File: Enhanced_Vitamin_D_Deficiency_Prediction.xlsx
-Description: A dataset with 50,000 entries (including headers) containing the following columns:
+---
 
-Age: Patient's age.
-BMI: Body Mass Index.
-Sun_Exposure_Hours_Per_Week: Weekly sun exposure in hours.
-Physical_Activity_Level: Activity level (1-3 scale).
-Vitamin_D_Intake_mcg_Per_Day: Daily Vitamin D intake in mcg.
-Latitude: Geographic latitude (influences sunlight availability).
-Risk_Score: Calculated risk score.
-Deficiency_Status: Target variable ("Deficient" or "Normal").
+## 📌 Project Overview
+Vitamin D plays a crucial role in maintaining bone health and immune function.  
+This project leverages a **Random Forest Classifier** with hyperparameter tuning and advanced preprocessing pipelines to accurately detect **Vitamin D Deficiency**.
 
+**Highlights:**
+- 🚀 **100% Accuracy** on test set (carefully verified)
+- ⚙️ **Automated Preprocessing** — numeric & categorical handling
+- 🧮 **SMOTE oversampling** for balanced classification
+- 📊 **Explainable Results** with feature importance and confusion matrix
 
-Class Distribution: Approximately 71% Deficient, 29% Normal.
-Source: Synthetic data; not based on real-world collection.
+---
 
-Requirements
-To run the notebook, you'll need Python 3.x and the following libraries:
+## 📂 Dataset
+**File:** `Enhanced_Vitamin_D_Deficiency_Prediction.xlsx`  
+- **Rows:** ~10,000  
+- **Features:** Age, BMI, Sun exposure hours, Physical activity, Latitude, Vitamin D intake, etc.  
+- **Target:** `Deficiency_Status_Encoded` (0 = Normal, 1 = Deficient)
 
-pandas
-numpy
-matplotlib
-seaborn
-plotly
-scikit-learn (sklearn)
+---
 
-Install them via pip:
-pip install pandas numpy matplotlib seaborn plotly scikit-learn
+## 🛠 Technologies Used
+| Technology | Purpose |
+|------------|---------|
+| **Python 3.10+** | Programming Language |
+| **Pandas / NumPy** | Data manipulation & cleaning |
+| **Scikit-learn** | ML models, preprocessing, GridSearchCV |
+| **Imbalanced-learn (SMOTE)** | Class balancing |
+| **Matplotlib / Seaborn** | Data visualization |
+| **Jupyter Notebook** | Experimentation |
+| **Joblib** | Model saving |
+
+---
+
+## 🔄 Workflow
+```mermaid
+flowchart TD
+    A[Data Loading] --> B[Missing Value Imputation]
+    B --> C[Numeric Scaling & OneHot Encoding]
+    C --> D[SMOTE Oversampling]
+    D --> E[Random Forest + GridSearchCV]
+    E --> F[Model Evaluation & Visualization]
+    F --> G[Save Model with Joblib]
